@@ -1,0 +1,19 @@
+<p>child works!</p>
+
+
+<table class="table table-hover">
+    <thead>
+     <tr>
+        <th>Customer Id</th>
+        <th>Customer Name</th>
+     </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cust of customers">
+            <td>{{cust.customerId}}</td>
+            <td>{{cust.customerId}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<input type="button" (click)="refresh()" value="Refresh" class="btn btn-primary"/>

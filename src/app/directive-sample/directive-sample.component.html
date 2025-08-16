@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-lg-6 col-sm-9">
+        <p>directive-sample works!</p>
+
+        <h4>*ngIf</h4>
+        <span>Enter a number:</span>
+        <input type="text" [(ngModel)]="num" class="form-control" />
+
+        <div *ngIf="num%2==0;then pradeepblock else elseblock"></div>
+
+        <ng-template #pradeepblock>
+            <p><b>Number is even</b></p>
+        </ng-template>
+
+        <ng-template #elseblock>
+            <p><b>Number is odd</b></p>
+        </ng-template>
+
+
+        <h4>*ngFor</h4>
+        <!-- <ul>
+            <li *ngFor="let c of colors">
+                {{c}}
+            </li>
+        </ul> -->
+        <select [(ngModel)]="selectedColor" class="form-select">
+            <option *ngFor="let c of colors">
+                {{c}}
+            </option>
+        </select>
+
+        {{selectedColor}}
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Code</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- [class.r1]="prod.price<500" [class.b1]="prod.price>500" -->
+                <tr *ngFor="let prod of products" [style.color]="selectedColor">
+                    <td>{{prod.productId}}</td>
+                    <td>{{prod.productCode}}</td>
+                    <td>{{prod.productName}}
+                        <input type="button" value="Like" [appFavs]="selectedColor" />
+                    </td>
+                    <td>{{prod.price}}
+                        <i *ngIf="prod.price>500">Discount Available</i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <input type="button" (click)="addNewProduct()" value="Add New" class="btn btn-success" />
+
+        <h4>Route Parameter: {{Id}}</h4>
+        <h4>QueryString Parameter: {{city}}, {{country}}</h4>
+    </div>
+</div>

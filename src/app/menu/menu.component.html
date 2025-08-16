@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Demo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav" *ngIf="authService.currentUser != undefined">
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['databinding']">DataBinding</a>
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['dir','abc']">Directives</a>
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['pipe']">Pipe</a>
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['datasharing']">Data Sharing</a>
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['templatedriven']">Template Driven</a>
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['reactive']">Model Driven</a>
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['observable']">Observable</a>
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['list']">Product List</a>
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['adminhome']">Admin (lazyloading)</a>  
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['hooks']">Lifecycle Hooks</a> 
+        Welcome {{authService.currentUser.fullName}}
+        <a class="nav-link btn btn-primary" routerLinkActive="test" (click)="logout()">Logout</a> 
+      </div>
+      <div class="navbar-nav" *ngIf="authService.currentUser == undefined">
+        <a class="nav-link" routerLinkActive="test" [routerLink]="['/login']">Login</a>  
+      </div>
+    </div>
+  </div>
+</nav>

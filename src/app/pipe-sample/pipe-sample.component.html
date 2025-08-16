@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-lg-6">
+
+
+        <p>pipe-sample works!</p>
+
+        <p>Product Id: {{product.productId | mypipe:'E':'*'}}</p>
+        <p>Product Code: {{product.productCode}}</p>
+        <p>Product Name: {{product.productName | uppercase}}</p>
+        <p>Product Price: {{product.price | currency:'INR'}}</p>
+        <p>DOB: {{DOB| date: 'dd MMM yyyy'}}</p>
+
+        {{product | json}}
+
+        <hr />
+
+        <input type="button" (click)="redirect()" value="Redirect to Directive Page" class="btn btn-dark" />
+
+    </div>
+    <div class="col-lg-6">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['personal']">Personal</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['education']">Education</a>
+            </li>
+        </ul>
+        <router-outlet></router-outlet>
+    </div>
+</div>

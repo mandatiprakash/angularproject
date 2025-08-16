@@ -1,0 +1,20 @@
+<p>customer-add works! (parent)</p>
+
+<div class="row">
+    <div class="col-lg-6">
+        <span>Enter Customer Name:</span>
+        <input type="text" [(ngModel)]="customerName"  class="form-control"/>
+
+        <input type="button" value="Add Customer" (click)="addCustomer()" class="btn btn-primary"/>
+        <br/>
+        {{customers|json}}
+        <div class="alert alert-primary text-center" #divMessage></div>
+    </div>
+    <div class="col-lg-6">
+        <app-customer-list  [mylist]="customers" (on-selection)="readValues($event)"></app-customer-list>
+
+        <!-- <app-customer-list #clistcomp></app-customer-list> -->
+
+    </div>
+</div>
+

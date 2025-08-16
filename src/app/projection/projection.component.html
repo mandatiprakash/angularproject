@@ -1,0 +1,15 @@
+<p>projection works!</p>
+
+<div class="alert alert-warning text-center">
+    <ng-content select="h2"></ng-content>
+</div>
+<div class="alert alert-dark">
+    <ng-content select=".cls"></ng-content>
+</div>
+<div class="alert alert-primary">
+    <ng-content select="footer"></ng-content>
+    Today: {{currentDate | date: 'dd MMM yyyy'}}
+
+</div>
+
+
